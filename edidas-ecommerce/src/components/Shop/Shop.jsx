@@ -26,6 +26,7 @@ export default function Shop() {
                                         <ListGroup.Item className='fw-bolder'>Price : $ {price}</ListGroup.Item>
                                         <ListGroup.Item>Brand : {seller}</ListGroup.Item>
                                         <ListGroup.Item>Rating : <ReactStarsRating onChange={onChange} value={ratings} /></ListGroup.Item>
+                                        <ListGroup.Item>Rating Count : {ratingsCount}</ListGroup.Item>
                                     </ListGroup>
 
 
