@@ -5,7 +5,22 @@ import ShoppingCart from './ShoppingCart';
 export default function Shop() {
     const [orderedItems, setOrderedItems] = useState([]);
 
-    
+    console.log(orderedItems);
+
+    // useEffect(()=>{
+    //     if (typeof window !== 'undefined') {
+    //         setOrderedItems(JSON.parse(localStorage.getItem('orderItems')))
+    //     }
+
+    // },[])
+
+    // useEffect(() => {
+    //     if (typeof window !== 'undefined') {
+    //         localStorage.setItem('orderItems', JSON.stringify(orderedItems))
+    //     }
+    // }, [orderedItems])
+
+
 
     function addItemHandler(item) {
         setOrderedItems([...orderedItems, item])

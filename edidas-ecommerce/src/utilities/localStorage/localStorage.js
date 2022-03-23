@@ -48,16 +48,3 @@ export {
     removeLocalStore
 }
 
-
-// useEffect(()=>{
-    //     if (typeof window !== 'undefined') {
-    //         setOrderedItems(JSON.parse(localStorage.getItem('orderItems')))
-    //     }
-
-    // },[])
-
-    // useEffect(() => {
-    //     if (typeof window !== 'undefined') {
-    //         localStorage.setItem('orderItems', JSON.stringify(orderedItems))
-    //     }
-    // }, [orderedItems])
