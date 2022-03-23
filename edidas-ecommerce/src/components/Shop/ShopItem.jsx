@@ -9,13 +9,13 @@ export default function ShopItem({ item, addItemHandler, removeItemHandler }) {
     const onChange = (value) => {
         // console.log(`React Stars Rating value is ${value}`);
     };
-    function addItemToCart(price, id) {
-        addItemHandler(1, price, id)
+    function addItemToCart(item) {
         setCount(prev => ++prev)
+        addItemHandler(item)
     }
-    function removeItemFromCart(price, id) {
-        removeItemHandler(1, price, id)
+    function removeItemFromCart(item) {
         setCount(prev => --prev)
+        removeItemHandler(item)
     }
 
     const { id, category, name, seller, price, stock, ratings, ratingsCount, img, shipping } = item
@@ -35,9 +35,9 @@ export default function ShopItem({ item, addItemHandler, removeItemHandler }) {
 
 
             </Card.Body>
-            <Button variant="warning" className='mb-3' onClick={() => addItemToCart(price, id)}>Add to cart</Button>
+            <Button variant="warning" className='mb-3' onClick={() => addItemToCart(item)}>Add to cart</Button>
 
-            <Button variant="danger" disabled={count === 0 ? true : false} onClick={() => removeItemFromCart(price, id)}>Remove from  cart</Button>
+            <Button variant="danger" disabled={count === 0 ? true : false} onClick={() => removeItemFromCart(item)}>Remove from  cart</Button>
         </Card>
     )
 }
