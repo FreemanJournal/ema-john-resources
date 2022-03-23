@@ -31,6 +31,8 @@ export default function ShopItem({ item, addItemHandler, removeItemHandler }) {
                     <ListGroup.Item>Rating Count : {ratingsCount}</ListGroup.Item>
                 </ListGroup>
 
+           
+
 
             </Card.Body>
             <Button variant="warning" className='mb-3' onClick={() => addItemToCart(price, id)}>Add to cart</Button>

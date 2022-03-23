@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { Button, Card, ListGroup } from 'react-bootstrap'
-import ReactStarsRating from 'react-awesome-stars-rating';
+import React, { useEffect, useState } from 'react';
 import ShopItem from './ShopItem';
 
 export default function ShopItems({ addItemHandler, removeItemHandler }) {
