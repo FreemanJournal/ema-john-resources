@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { removeLocalStore } from '../../utilities/localStorage/localStorage';
 import ShopItems from './ShopItems';
 import ShoppingCart from './ShoppingCart';
 export default function Shop() {
     const [orderedItems, setOrderedItems] = useState([]);
+
+    
 
     function addItemHandler(item) {
         setOrderedItems([...orderedItems, item])
@@ -16,8 +19,8 @@ export default function Shop() {
         }
     }
     function clearCartHandler() {
-
         setOrderedItems([])
+        removeLocalStore('productKey')
     }
 
     return (
