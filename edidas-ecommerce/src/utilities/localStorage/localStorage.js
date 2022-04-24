@@ -1,20 +1,17 @@
-function setLocalItems(setArray) {
-    return localStorage.setItem('productKey', JSON.stringify(setArray))
+function setLocalItems(setObject) {
+    return localStorage.setItem('productKey', JSON.stringify(setObject))
 }
 
 function addToLocalStore(id) {
     if (typeof window !== 'undefined') {
-        const keyStore = JSON.parse(localStorage.getItem('productKey'))
-        if (keyStore) {
-            const keyStoreItem = keyStore.find(item => id in item)
-            if (keyStoreItem) {
-                setLocalItems(keyStore.map(item => (id in item) ? { [id]: item[id] + 1 } : item))
-            } else {
-                setLocalItems([...keyStore, { [id]: 1 }])
-            }
+        const storeCart = JSON.parse(localStorage.getItem('productKey')) || {}
+        const quantity = storeCart[id]
+        if (quantity) {
+            ++storeCart[id]
         } else {
-            setLocalItems([{ [id]: 1 }])
+            storeCart[id] = 1
         }
+        setLocalItems(storeCart)
     }
 
 }
@@ -22,14 +19,8 @@ function removeFromLocalStore(id) {
     if (typeof window !== 'undefined') {
         const keyStore = JSON.parse(localStorage.getItem('productKey'))
         if (keyStore) {
-            const keyStoreItem = keyStore.find(item => id in item)
-            if (keyStoreItem) {
-                setLocalItems(keyStore.map(item => (id in item) ? { [id]: item[id] - 1 } : item))
-            }
-            if (keyStoreItem[id] === 1) {
-                keyStore.splice(keyStore.indexOf(keyStoreItem), 1)
-                setLocalItems(keyStore)
-            }
+           delete keyStore[id];
+           setLocalItems(keyStore)
         }
     }
 
